@@ -9,7 +9,7 @@
 ・netmikoをインストール
 
 ## フォルダ階層
-"""
+"""bash
 │  diff.py
 │  log_replace.py
 │  main.py
