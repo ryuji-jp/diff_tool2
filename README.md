@@ -7,3 +7,33 @@
 
 ## 準備
 ・netmikoをインストール
+
+## フォルダ階層
+"""
+│  diff.py
+│  log_replace.py
+│  main.py
+│  ssh.py
+│
+├─input
+│  │  command.txt
+│  │
+│  ├─config
+│  │      config1.log
+│  │      config2.log
+│  │
+│  ├─device
+│  │      device1.json
+│  │      device2.json
+│  │      device3.json
+│  │
+│  └─log
+│          device1.json
+│          device2.json
+│
+└─output
+        output_device1_225141.txt
+        output_device2_225141.txt
+        output_device3_225141.txt
+        取得結果.csv
+"""
