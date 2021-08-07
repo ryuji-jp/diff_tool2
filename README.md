@@ -9,7 +9,7 @@
 * netmikoをインストール
 
 ## フォルダ階層
-'''階層
+```
 │  diff.py
 │  log_replace.py
 │  main.py
@@ -36,11 +36,4 @@
         output_device2_225141.txt
         output_device3_225141.txt
         取得結果.csv
-''''(
-
-```html:sample
-   <div class="radioWave">
-      <p>迷いの中あてなく見上げた空彩る星たちが</p>
-      <p>嘘みたいに晴れた朝に繋がることを教えてくれた</p>
-   </div>
-```(
+```
