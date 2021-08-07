@@ -9,7 +9,7 @@
 * netmikoをインストール
 
 ## フォルダ階層
-'''
+''' 
 │  diff.py
 │  log_replace.py
 │  main.py
@@ -36,4 +36,4 @@
         output_device2_225141.txt
         output_device3_225141.txt
         取得結果.csv
-'''
+''' 
