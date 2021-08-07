@@ -1,0 +1,50 @@
+
+interfaces {
+    ethernet eth0 {
+        address dhcp
+        hw-id 00:0c:29:f5:c7:9d
+    }
+    loopback lo {
+    }
+}
+service {
+    ssh {
+    }
+}
+system {
+    config-management {
+        commit-revisions 100
+    }
+    console {
+        device ttyS0 {
+            speed 115200
+        }
+    }
+    host-name vyos
+    login {
+        user vyos {
+            authentication {
+                encrypted-password ****************
+                plaintext-password ****************
+            }
+        }
+    }
+    ntp {
+        server 0.pool.ntp.org {
+        }
+        server 1.pool.ntp.org {
+        }
+        server 2.pool.ntp.org {
+        }
+    }
+    syslog {
+        global {
+            facility all {
+                level info
+            }
+            facility protocols {
+                level debug
+            }
+        }
+    }
+}

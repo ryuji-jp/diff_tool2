@@ -1,0 +1,66 @@
+ter
+
+  Invalid command:  [ter]
+      
+vyos@vyos:~$ terl
+
+  Invalid command:  [terl]
+      
+vyos@vyos:~$ terlset terminal length 0
+vyos@vyos:~$ 
+vyos@vyos:~$ 
+vyos@vyos:~$ show vcoi
+vyos@vyos:~$ 
+vyos@vyos:~$ show con
+configuration   conntrack       conntrack-sync  console-server
+vyos@vyos:~$ show configuration 
+interfaces {
+    ethernet eth0 {
+        address dhcp
+        hw-id 00:0c:29:9a:9c:e4
+    }
+    loopback lo {
+    }
+}
+service {
+    ssh {
+    }
+}
+system {
+    config-management {
+        commit-revisions 100
+    }
+    console {
+        device ttyS0 {
+            speed 115200
+        }
+    }
+    host-name vyos
+    login {
+        user vyos {
+            authentication {
+                encrypted-password ****************
+                plaintext-password ****************
+            }
+        }
+    }
+    ntp {
+        server 0.pool.ntp.org {
+        }
+        server 1.pool.ntp.org {
+        }
+        server 2.pool.ntp.org {
+        }
+    }
+    syslog {
+        global {
+            facility all {
+                level info
+            }
+            facility protocols {
+                level debug
+            }
+        }
+    }
+}
+vyos@vyos:~$ 

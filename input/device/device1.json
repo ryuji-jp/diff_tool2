@@ -1,0 +1,8 @@
+{
+	"device_type": "autodetect",
+	"port": 22,
+	"ip": "192.168.2.57",
+	"username": "vyos",
+	"password": "vyos",
+	"secret":"vyos"
+}

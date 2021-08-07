@@ -1,0 +1,5 @@
+{
+	"before_file":"input/config/config1.log",
+	"prompt":"vyos@",
+	"command":"show configuration"
+}
