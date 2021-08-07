@@ -10,30 +10,30 @@
 
 ## フォルダ階層
 ```
-│  diff.py
-│  log_replace.py
-│  main.py
-│  ssh.py
+│  diff.py 〇基本いじらなくてよい
+│  log_replace.py 〇基本いじらなくてよい
+│  main.py 〇python main.py で実行します
+│  ssh.py 〇基本いじらなくてよい
 │
-├─input
-│  │  command.txt
+├─input ★事前に利用者が設定するフォルダ
+│  │  command.txt ★リモートログイン時、実行するコマンドりすと
 │  │
-│  ├─config
+│  ├─config ★比較する事前コンフィグ
 │  │      config1.log
 │  │      config2.log
 │  │
-│  ├─device
+│  ├─device ★リモート接続する機器の情報を記載する(ip,pwなど)
 │  │      device1.json
 │  │      device2.json
 │  │      device3.json
 │  │
-│  └─log
+│  └─log ★ログ比較をする際に情報を記載する()
 │          device1.json
 │          device2.json
 │
-└─output
-        output_device1_225141.txt
-        output_device2_225141.txt
-        output_device3_225141.txt
-        取得結果.csv
+└─output ■本ツール実行時に作成されるアウトプット
+        output_device1_225141.txt ■ログ
+        output_device2_225141.txt ■ログ
+        output_device3_225141.txt ■ログ
+        取得結果.csv ■取得情報をまとめたcsv
 ```
