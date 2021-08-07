@@ -38,7 +38,7 @@
         output_device3_225141.txt ■ログ
         取得結果.csv ■取得情報をまとめたcsv
 ```
-##実行方法
+## 実行方法
 ```
 python main.py
 ```
