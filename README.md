@@ -77,6 +77,7 @@ C:.
 ```
 ### command.txt
 * device.jsonの```"command": "command_cisco.txt"```で投入するコマンドを指定します。
+* 初めにcisco でいう```terminal length 0``` を必ず入れて下さい。
 
 ## 実行方法
 ```
