@@ -57,6 +57,23 @@ C:.
          device2.json
 ```
 ### deviceフォルダ
+* 機器のログイン情報を記載します。
+* 以下を参考に作成して下さい。
+```
+{
+	"a": {
+		"device_type": "autodetect", ★変更しなくてよい
+		"port": 22,                  ★対象ポート番号
+		"ip": "192.168.2.111",       ★IPアドレス
+		"username": "fnets",         ★ログインユーザ名
+		"password": "fnets",         ★ログインパスワード
+		"secret": "fnets"            ★enabaleパスワード
+	},
+	"b": {
+		"command": "command_cisco.txt" ★ログイン後投入するコマンドファイル
+	}
+}
+```
 ### command.test
 
 ## 実行方法
