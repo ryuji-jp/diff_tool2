@@ -41,6 +41,11 @@ C:.
         output_device4_141811.txt
         取得結果.csv
 ```
+## inputフォルダについて
+### configフォルダ
+### deviceフォルダ
+### command.test
+
 ## 実行方法
 ```
 python main.py
