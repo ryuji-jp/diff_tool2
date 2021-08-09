@@ -13,24 +13,24 @@
 ```
 C:.
 │  diff.py
-│  main.py
+│  main.py ★実行するpythonファイル
 │  ssh.py
 │
-├─input
+├─input ★利用者が事前に編集するフォルダ
 │  │  command_cisco.txt
 │  │  command_vyos.txt
 │  │
-│  ├─config
+│  ├─config ★比較対象ファイル
 │  │      device1.txt
 │  │      device3.txt
 │  │
-│  └─device
+│  └─device ★機器情報記載ファイル
 │          device1.json
 │          device2.json
 │          device3.json
 │          device4.json
 │
-└─output
+└─output ★本プログラム実行により、生成されるファイル
         diff_device1_141826.html
         diff_device3_141826.html
         diff_txt_device1_141826.txt
