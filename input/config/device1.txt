@@ -1,0 +1,145 @@
+
+Building configuration...
+
+Current configuration : 1436 bytes
+!
+! No configuration change since last restart
+version 15.1
+service config
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname fnets
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable password fnets
+!
+aaa new-model
+!
+!
+!
+!
+!
+!
+!
+aaa session-id common
+!
+memory-size iomem 15
+crypto pki token default removal timeout 0
+!
+!
+ip source-route
+!
+!
+!
+!
+!
+ip cef
+ip domain name fnets.com
+no ipv6 cef
+!
+!
+!
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+license udi pid CISCO892-K9 sn FGL164924A1
+!
+!
+username fnets password 0 fnets
+!
+!
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+interface BRI0
+ no ip address
+ encapsulation hdlc
+ shutdown
+ isdn termination multidrop
+!
+interface FastEthernet0
+ no ip address
+!
+interface FastEthernet1
+ no ip address
+!
+interface FastEthernet2
+ no ip address
+!
+interface FastEthernet3
+ no ip address
+!
+interface FastEthernet4
+ no ip address
+!
+interface FastEthernet5
+ no ip address
+!
+interface FastEthernet6
+ no ip address
+!
+interface FastEthernet7
+ no ip address
+!
+interface FastEthernet8
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0
+ ip address 192.168.2.111 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface Vlan1
+ no ip address
+!
+ip forward-protocol nd
+!
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+mgcp profile default
+!
+!
+!
+!
+!
+line con 0
+line aux 0
+line vty 0 4
+ transport input ssh
+!
+end
+

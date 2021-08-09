@@ -9,7 +9,9 @@ def ssh_log(device):
 
 
   json_open = open('input/device/'+device, 'r')
-  remote_device = json.load(json_open)
+  remote_device_pre = json.load(json_open)
+  remote_device = remote_device_pre["a"]
+  remote_device_command = remote_device_pre["b"]
 
   json_open.close()
 
@@ -32,8 +34,8 @@ def ssh_log(device):
     best_match = guesser.autodetect()
 
     # 検出結果のデバッグ出力
-    print("device_type: " + best_match)
-    print(device+"実行中!!!")
+    print("[情報] device_type: " + best_match)
+    print("[情報] "+device+"実行中!!!")
 
     # 自動検出した device_type を再設定する
     remote_device['device_type'] = best_match
@@ -43,30 +45,33 @@ def ssh_log(device):
     # コマンド実行結果の出力
     #print(connection.send_command('show clock\nshow run'),file=f)
 
-    command = open('input/command.txt','r')
+    #command = open('input/'+remote_device['command'],'r')
+    command = open('input/'+remote_device_command["command"],'r')
     command_list = command.readlines()
-
 
     for i in range(len(command_list)):   # インデックス番号 0 から順に要素をスライスします。
       list_item = command_list[i]     # list 関数でリストの要素の数の分ループします。
-      print (list_item)
+      #コマンド出力結果を取得
       print(connection.send_command(command_list[i]),file=f)
 
     command.close()
 
     f.close()
 
-    with open('output/取得結果.csv','a',newline="") as f:
-      writer = csv.writer(f)
-      writer.writerow([remote_device['username'],remote_device['ip'],"取得OK",datetime.datetime.now().strftime("%Y-%m-%d %H:%M")])
+    #csv書き込み
+    with open('output/取得結果.csv','a',newline="") as c:
+      writer = csv.writer(c)
+      writer.writerow([remote_device['username'],remote_device['ip'],"取得OK",datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),f.name])
 
   # 切断
     connection.disconnect()
 
   except :
-    print(device+" SSH接続できません")
-    with open('output/取得結果.csv','a',newline="") as f:
-      writer = csv.writer(f)
-      writer.writerow([remote_device['username'],remote_device['ip'],"取得NG",datetime.datetime.now().strftime("%Y-%m-%d %H:%M")])
+    print("[エラー] "+device+" SSH接続できません。対象機器に不備があるか、input/device配下ののjsonファイルに不備があります")
+    
+    #csv書き込み
+    with open('output/取得結果.csv','a',newline="") as c:
+      writer = csv.writer(c)
+      writer.writerow([remote_device['username'],remote_device['ip'],"取得NG",datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),f.name])
     pass
 

@@ -1,8 +1,13 @@
 {
-	"device_type": "autodetect",
-	"port": 22,
-	"ip": "192.168.2.58",
-	"username": "vyos",
-	"password": "vyos",
-	"secret":"vyos"
+	"a": {
+		"device_type": "autodetect",
+		"port": 22,
+		"ip": "192.168.2.111",
+		"username": "fnets",
+		"password": "fnets",
+		"secret": "fnets"
+	},
+	"b": {
+		"command": "command_cisco.txt"
+	}
 }

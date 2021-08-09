@@ -5,28 +5,37 @@ import datetime
 import os
 import glob
 from difflib import HtmlDiff
-from plyer import notification
-
+import sys
 
 def diff_log(device_name):
 	df = HtmlDiff()
 
 	device_file, ext = os.path.splitext( os.path.basename('input/device/'+device_name) )
-	#output 最新path抽出
-	saishin_output = glob.glob("output/output_"+device_file+"*")
-	saishin_output_file = max(saishin_output, key=os.path.getctime)
 
-	#config 最新path抽出
-	saishin_config = glob.glob("output/config_"+device_file+"*")
-	saishin_config_file = max(saishin_config, key=os.path.getctime)
+	try:
+		#output 最新path抽出
+		saishin_output = glob.glob("output/output_"+device_file+"*")
+		saishin_output_file = max(saishin_output, key=os.path.getctime)
+
+		
+		#config 最新path抽出
+		saishin_config = glob.glob("input/config/"+device_file+"*")
+		saishin_config_file = max(saishin_config, key=os.path.getctime)
+		#saishin_config_file = "input/config/"+device_file+"*"
+
+	except :
+		print("[エラー] deviceファイルとconfigファイルの名前が違います")
+		return
 
 	#outpit_* ファイル
 	with open(saishin_output_file,'r') as f:
 		str_output = f.readlines()
-
-	#config_* ファイル
+	
+	#config ファイル
+	print("[情報] 差分比較 "+saishin_config_file)
 	with open(saishin_config_file,'r') as g:
 		str_config = g.readlines()
+	
 
 	#差分比較HTML
 	now = datetime.datetime.now()
@@ -57,17 +66,12 @@ def diff_log(device_name):
 		
 		if str.startswith('- '):
 			str_diff_replace = str.replace("\n", "")
-			print(str_diff_replace)
+			#print(str_diff_replace)
 
 		if str.startswith('+ '):
 			str_diff_replace = str.replace("\n", "")
-			print(str_diff_replace)
+			#print(str_diff_replace)
 
 		elif str.endswith('---'):
 			break
 	
-
-
-
-
-
