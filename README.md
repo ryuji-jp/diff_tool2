@@ -11,32 +11,76 @@
 
 ## フォルダ階層
 ```
-│  diff.py 〇基本いじらなくてよい
-│  log_replace.py 〇基本いじらなくてよい
-│  main.py 〇python main.py で実行します
-│  ssh.py 〇基本いじらなくてよい
+C:.
+│  diff.py
+│  main.py
+│  ssh.py
 │
-├─input ★事前に利用者が設定するフォルダ
-│  │  command.txt ★リモートログイン時、実行するコマンドリスト
+├─input
+│  │  command_cisco.txt
+│  │  command_vyos.txt
 │  │
-│  ├─config ★比較する事前コンフィグ
-│  │      config1.log
-│  │      config2.log
+│  ├─config
+│  │      device1.txt
+│  │      device3.txt
 │  │
-│  ├─device ★リモート接続する機器の情報を記載する(ip,pwなど)
-│  │      device1.json
-│  │      device2.json
-│  │      device3.json
-│  │
-│  └─log ★ログ比較をする際に情報を記載する()
+│  └─device
 │          device1.json
 │          device2.json
+│          device3.json
+│          device4.json
 │
-└─output ■本ツール実行時に作成されるアウトプット
-        output_device1_225141.txt ■ログ
-        output_device2_225141.txt ■ログ
-        output_device3_225141.txt ■ログ
-        取得結果.csv ■取得情報をまとめたcsv
+├─output
+│      diff_device1_141826.html
+│      diff_device3_141826.html
+│      diff_txt_device1_141826.txt
+│      diff_txt_device3_141826.txt
+│      output_device1_141811.txt
+│      output_device2_141811.txt
+│      output_device3_141811.txt
+│      output_device4_141811.txt
+│      取得結果.csv
+│
+└─__pycache__
+        diff.cpython-37.pyc
+        log_replace.cpython-37.pyc
+        ssh.cpython-37.pyc
+
+
+C:\Work\python_contest\diff_tool3>
+C:\Work\python_contest\diff_tool3>
+C:\Work\python_contest\diff_tool3>tree /f
+フォルダー パスの一覧:  ボリューム Local Disk
+ボリューム シリアル番号は FAFC-01FC です
+C:.
+│  diff.py
+│  main.py
+│  ssh.py
+│
+├─input
+│  │  command_cisco.txt
+│  │  command_vyos.txt
+│  │
+│  ├─config
+│  │      device1.txt
+│  │      device3.txt
+│  │
+│  └─device
+│          device1.json
+│          device2.json
+│          device3.json
+│          device4.json
+│
+└─output
+        diff_device1_141826.html
+        diff_device3_141826.html
+        diff_txt_device1_141826.txt
+        diff_txt_device3_141826.txt
+        output_device1_141811.txt
+        output_device2_141811.txt
+        output_device3_141811.txt
+        output_device4_141811.txt
+        取得結果.csv
 ```
 ## 実行方法
 ```
