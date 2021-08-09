@@ -75,7 +75,8 @@ C:.
 	}
 }
 ```
-### command.test
+### command.txt
+* device.jsonの```"command": "command_cisco.txt"```で投入するコマンドを指定します。
 
 ## 実行方法
 ```
