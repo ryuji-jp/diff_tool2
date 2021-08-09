@@ -63,7 +63,7 @@ C:.
 {
 	"a": {
 		"device_type": "autodetect", ★変更しなくてよい
-		"port": 22,                  ★対象ポート番号
+		"port": 22,                  ★ポート番号
 		"ip": "192.168.2.111",       ★IPアドレス
 		"username": "fnets",         ★ログインユーザ名
 		"password": "fnets",         ★ログインパスワード
