@@ -16,6 +16,7 @@ C:.
 │  diff.py
 │  main.py ★実行するpythonファイル
 │  ssh.py
+|  json_make.xlsm
 │
 ├─input ★利用者が事前に編集するフォルダ
 │  │  command_cisco.txt
