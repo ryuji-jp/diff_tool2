@@ -1,0 +1,2 @@
+console lines infinity
+show config

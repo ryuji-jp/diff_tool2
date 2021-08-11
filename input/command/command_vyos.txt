@@ -1,0 +1,2 @@
+set terminal length 0
+show configuration

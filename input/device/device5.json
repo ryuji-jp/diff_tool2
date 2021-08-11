@@ -1,0 +1,13 @@
+{
+	"a":{
+		"device_type":"juniper_screenos",
+		"port":"22",
+		"ip":"192.168.2.253",
+		"username":"netscreen",
+		"password":"netscreen",
+		"secret":""
+	},
+	"b":{
+		"command":"command_ssg.txt"
+	}
+}
