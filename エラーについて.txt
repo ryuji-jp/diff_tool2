@@ -1,0 +1,23 @@
+
+以下エラーは対象機器に同時接続数以上の接続を行った際に発生します。
+
+--
+Exception: Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "C:\Users\ryuji\AppData\Local\Programs\Python\Python37\lib\site-packages\paramiko\transport.py", line 2211, in _check_banner
+    buf = self.packetizer.readline(timeout)
+  File "C:\Users\ryuji\AppData\Local\Programs\Python\Python37\lib\site-packages\paramiko\packet.py", line 380, in readline
+    buf += self._read_timeout(timeout)
+  File "C:\Users\ryuji\AppData\Local\Programs\Python\Python37\lib\site-packages\paramiko\packet.py", line 609, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ryuji\AppData\Local\Programs\Python\Python37\lib\site-packages\paramiko\transport.py", line 2039, in run
+    self._check_banner()
+  File "C:\Users\ryuji\AppData\Local\Programs\Python\Python37\lib\site-packages\paramiko\transport.py", line 2216, in _check_banner
+    "Error reading SSH protocol banner" + str(e)
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+--

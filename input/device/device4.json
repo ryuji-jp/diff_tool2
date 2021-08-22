@@ -1,13 +1,13 @@
 {
 	"a":{
-		"device_type":"a10",
+		"device_type":"autodetect",
 		"port":"22",
-		"ip":"192.168.2.28",
-		"username":"admin",
-		"password":"a10",
-		"secret":""
+		"ip":"192.168.2.115",
+		"username":"rt1",
+		"password":"fnets",
+		"secret":"fnets"
 	},
 	"b":{
-		"command":"command_a10.txt"
+		"command":" "
 	}
 }

@@ -2,8 +2,8 @@
 	"a":{
 		"device_type":"autodetect",
 		"port":"22",
-		"ip":"192.168.2.112",
-		"username":"rt1",
+		"ip":"192.168.2.118",
+		"username":"rt2",
 		"password":"fnets",
 		"secret":"fnets"
 	},

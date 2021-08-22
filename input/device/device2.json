@@ -1,13 +1,13 @@
 {
 	"a":{
-		"device_type":"cisco_ios",
+		"device_type":"autodetect",
 		"port":"22",
-		"ip":"192.168.2.111",
-		"username":"fnets",
+		"ip":"192.168.2.113",
+		"username":"rt1",
 		"password":"fnets",
 		"secret":"fnets"
 	},
 	"b":{
-		"command":"command_cisco.txt"
+		"command":" "
 	}
 }

@@ -1,0 +1,102 @@
+Building configuration...
+
+Current configuration : 1182 bytes
+!
+version 15.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no platform punt-keepalive disable-kernel-core
+platform console virtual
+!
+hostname rt1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable password fnets
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+
+
+ip domain name cisco.com
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+multilink bundle-name authenticated
+!
+!
+license udi pid CSR1000V sn 98RRPZNY3A8
+!
+username rt1 password 0 fnets
+!
+redundancy
+ mode none
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet1
+ ip address 192.168.3.113 255.255.255.0 secondary
+ ip address 192.168.3.114 255.255.255.0 secondary
+ ip address 192.168.3.115 255.255.255.0 secondary
+ ip address 192.168.3.116 255.255.255.0 secondary
+ ip address 192.168.3.112 255.255.255.0
+ negotiation auto
+!
+interface GigabitEthernet2
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet3
+ no ip address
+ shutdown
+ negotiation auto
+!
+!
+virtual-service csr_mgmt
+ activate
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+control-plane
+!
+!
+line con 0
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 3
+ login local
+line vty 4
+ login local
+ transport input ssh
+!
+!
+end
+
