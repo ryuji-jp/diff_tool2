@@ -84,4 +84,6 @@ return_sum = sum(return_list)
 return_len = len(return_list)
 return_err = return_len - return_sum
 
-print ("[情報] 対象機器:"+ str(return_len) +" 成功:"+ str(return_sum) +" エラー:"+ str(return_err))
+print("[情報] 対象機器:"+ str(return_len) +" 成功:"+ str(return_sum) +" エラー:"+ str(return_err))
+print("[情報] 1日以内に再起動した可能性があるルータが"+str(ssh.uptime_flag)+"台あります")
+print("[情報] パケットロスが発生している機器は"+str(ssh.error_interface_flag)+"台あります")

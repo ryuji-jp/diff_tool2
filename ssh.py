@@ -24,6 +24,12 @@ def ssh_log(device):
   ping_flag = 0
   #sshフラグ
   ssh_flag=0
+  #uptimeフラグ
+  global uptime_flag
+  uptime_flag = 0
+  #error_interfaceフラグ
+  global error_interface_flag
+  error_interface_flag = 0
 
   #フォルダ作成
   new_path = "output"
@@ -32,7 +38,8 @@ def ssh_log(device):
 
   # ファイル準備
   device_file, ext = os.path.splitext( os.path.basename('input/device/'+device) )
-  f = open("output/"+device_file+"_output_{0:%H%M%S}.txt".format(now), "w") # output_時間 のテキスト名
+  file_name = "output/"+device_file+"_output_{0:%H%M%S}.txt".format(now) 
+  f = open(file_name, "w") # output_時間 のテキスト名
  
 
   #ping 確認
@@ -80,23 +87,51 @@ def ssh_log(device):
       print(connection.send_command(command_list[i]),file=f)
 
     command.close()
+    connection.disconnect()
 
     f.close()
     # 切断
-    connection.disconnect()
 
     
+    with open(file_name, 'r', newline='') as f:
+      lines = f.readlines()
+      #show ver読み取り
+      for line in lines:
+        if "uptime is" in line:
+          target = "uptime is "
+          uptime = line[:-1]
+          idx = uptime.find(target)
+          uptime = line[idx+len(target):][:-1]
+          print("[情報] "+device+"の起動時間は"+uptime)
 
+          if "days" not in uptime:
+            
+            uptime_flag = uptime_flag +1
+        #show interface読み取り
+        elif " input errors" in line:
+          target = ' input errors'
+          error_interface = line[:-1]
+          idx = error_interface.find(target)
+          error_interface = line[:idx]
+          error_interface = error_interface.strip()
+          print("[情報] "+device+"のインターフェースエラーカウントは"+error_interface)
+
+          if not error_interface == "0":
+            print("[エラー] "+device+"のインターフェースでパケット破棄が発生しています")
+            error_interface_flag = error_interface_flag +1 
+
+
+    
     if ping_flag == 1: #ping OK
       #csv書き込み
       with open('output/取得結果.csv','a',newline="") as c:
         writer = csv.writer(c)
-        writer.writerow([device,remote_device['ip'],"取得OK","Ping OK",datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),f.name])
+        writer.writerow([device,remote_device['ip'],"取得OK","Ping OK",datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),f.name,uptime])
 
     else: #ping NG
       with open('output/取得結果.csv','a',newline="") as c:
         writer = csv.writer(c)
-        writer.writerow([device,remote_device['ip'],"取得OK","Ping NG",datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),f.name])
+        writer.writerow([device,remote_device['ip'],"取得OK","Ping NG",datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),f.name,uptime])
     
     ssh_flag = 1
 
@@ -108,12 +143,12 @@ def ssh_log(device):
       #csv書き込み
       with open('output/取得結果.csv','a',newline="") as c:
         writer = csv.writer(c)
-        writer.writerow([device,remote_device['ip'],"取得NG","Ping OK",datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),f.name])
+        writer.writerow([device,remote_device['ip'],"取得NG","Ping OK",datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),f.name,uptime])
 
     else: #ping NG
       with open('output/取得結果.csv','a',newline="") as c:
         writer = csv.writer(c)
-        writer.writerow([device,remote_device['ip'],"取得NG","Ping NG",datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),f.name])
+        writer.writerow([device,remote_device['ip'],"取得NG","Ping NG",datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),f.name,uptime])
 
     pass
 

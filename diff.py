@@ -42,6 +42,7 @@ def diff_log(device_name):
 
 	file_write.close()
 
+	'''
 	#差分抽出
 	file_write_diff = open("output/diff_txt_"+device_name+"_{0:%H%M%S}.txt".format(now), mode='w')
 	for i in diff.context_diff(str_output, str_config, fromfile=saishin_output_file, tofile=saishin_config_file):
@@ -57,7 +58,8 @@ def diff_log(device_name):
 	with open(saishin_diff_file,'r') as h:
 		str_diff = h.readlines()
 	h.close()
-	
+	'''
+
 	#diffの抽出	
 	'''
 	for str in str_diff:
